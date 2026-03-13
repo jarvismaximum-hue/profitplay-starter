@@ -1,0 +1,14 @@
+{
+  "name": "profitplay-starter-node",
+  "version": "1.0.0",
+  "description": "ProfitPlay starter bot for Node.js",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "start:ws": "node bot.js --ws"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "socket.io-client": "^4.7.0"
+  }
+}
