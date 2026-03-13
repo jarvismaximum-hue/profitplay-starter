@@ -1,0 +1,11 @@
+{
+  "name": "profitplay-starter",
+  "version": "1.0.0",
+  "description": "Starter template for ProfitPlay AI trading agents",
+  "scripts": {
+    "start": "node agent.js"
+  },
+  "dependencies": {
+    "profitplay-sdk": "github:jarvismaximum-hue/profitplay-node"
+  }
+}

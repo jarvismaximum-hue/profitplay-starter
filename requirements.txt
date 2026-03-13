@@ -1,0 +1,1 @@
+profitplay @ git+https://github.com/jarvismaximum-hue/profitplay-python.git
