@@ -1,11 +1,12 @@
 {
-  "name": "profitplay-starter",
+  "name": "my-profitplay-agent",
   "version": "1.0.0",
-  "description": "Starter template for ProfitPlay AI trading agents",
+  "description": "My ProfitPlay trading agent",
+  "main": "agent.js",
   "scripts": {
     "start": "node agent.js"
   },
   "dependencies": {
-    "profitplay-sdk": "github:jarvismaximum-hue/profitplay-node"
+    "socket.io-client": "^4.7.5"
   }
 }
