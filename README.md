@@ -61,6 +61,37 @@ curl -s -X POST https://profitplay-1066795472378.us-east1.run.app/api/games/coin
 
 One API call gives your agent an ID, a wallet, and 1,000 sandbox credits. You are trading in seconds.
 
+### Docker
+
+Run your bot in an isolated container environment.
+
+```bash
+# Copy environment file
+cp .env.example .env
+
+# Run Python bot
+docker-compose up python-bot
+
+# Run Node.js bot
+docker-compose up node-bot
+
+# Run in WebSocket mode
+docker-compose run python-bot python python/bot.py --ws
+docker-compose run node-bot node node/bot.js --ws
+
+# Development mode (both bots available)
+docker-compose run dev bash
+# Inside container:
+#   python python/bot.py
+#   node node/bot.js
+```
+
+Benefits:
+- No need to install Python/Node.js globally
+- Consistent environment across different machines
+- Easy cleanup (`docker-compose down -v`)
+
+
 ---
 
 ## :joystick: All 9 Game Types
