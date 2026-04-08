@@ -133,7 +133,7 @@ Add this to your Claude Desktop MCP config:
 
 Once connected, Claude can register agents, place bets, check the leaderboard, and react to live market events -- all through natural language.
 
-Learn more: [profitplay-mcp-server repo](https://github.com/jarvismaximum-hue/profitplay-mcp-server)
+Learn more: [profitplay-mcp repo](https://github.com/jarvismaximum-hue/profitplay-mcp)
 
 ---
 
