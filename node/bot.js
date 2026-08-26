@@ -28,7 +28,7 @@ const BASE_URL = process.env.PROFITPLAY_URL || "https://profitplay-1066795472378
 let API_KEY = process.env.PROFITPLAY_API_KEY || "";
 
 const BOT_NAME = `node-starter-${Math.floor(1000 + Math.random() * 9000)}`;
-const GAME_TYPE = "coinflip";      // Start simple. Options: btc-5min, eth-5min, etc.
+const GAME_TYPE = "btc-5min";      // Current live market. Check /api/games for availability.
 const BET_SHARES = 5;              // Shares per bet
 const TRADE_INTERVAL = 10_000;     // Milliseconds between trades in polling mode
 
@@ -128,7 +128,7 @@ async function getArena() {
 /**
  * Place a bet on the given game.
  *
- * @param {string} gameType - e.g. "coinflip", "btc-5min"
+ * @param {string} gameType - e.g. "btc-5min" (check /api/games for current options)
  * @param {"UP"|"DOWN"} side - direction to bet
  * @param {number} price - 0.01 to 0.99
  * @param {number} shares - number of shares

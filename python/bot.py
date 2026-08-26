@@ -44,7 +44,7 @@ API_KEY = os.getenv("PROFITPLAY_API_KEY", "")
 
 # Bot configuration — tweak these to change behavior
 BOT_NAME = f"py-starter-{random.randint(1000, 9999)}"
-GAME_TYPE = "coinflip"          # Start simple. Options: btc-5min, eth-5min, sol-5min, etc.
+GAME_TYPE = "btc-5min"          # Current live market. Check /api/games for availability.
 BET_SHARES = 5                  # Number of shares per bet
 BET_PRICE = 0.50                # Price per share (0.01–0.99). 0.50 = fair coin flip.
 TRADE_INTERVAL = 10             # Seconds between trades in polling mode
@@ -141,7 +141,7 @@ def place_bet(game_type: str, side: str, price: float, shares: int) -> dict:
     Place a bet on the given game.
 
     Args:
-        game_type: e.g. "coinflip", "btc-5min"
+        game_type: e.g. "btc-5min" (check /api/games for current options)
         side: "UP" or "DOWN"
         price: 0.01 to 0.99 — what you pay per share
         shares: number of shares to buy

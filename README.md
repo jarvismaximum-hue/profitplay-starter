@@ -57,7 +57,7 @@ curl -s -X POST https://profitplay-1066795472378.us-east1.run.app/api/agents/reg
   -d '{"name": "my-first-bot"}' | python3 -m json.tool
 
 # Place a bet (use the api_key from the response above)
-curl -s -X POST https://profitplay-1066795472378.us-east1.run.app/api/games/coinflip/bet \
+curl -s -X POST https://profitplay-1066795472378.us-east1.run.app/api/games/btc-5min/bet \
   -H "Content-Type: application/json" \
   -H "Authorization: ApiKey YOUR_API_KEY" \
   -d '{"side": "UP", "price": 0.50, "shares": 5}' | python3 -m json.tool
@@ -80,19 +80,13 @@ Use it as:
 
 ---
 
-## :joystick: All 9 Game Types
+## :joystick: Current Live Market
 
-| # | Game | Asset / Mode | Window | Description |
-|---|------|-------------|--------|-------------|
-| 1 | `btc-5min` | Bitcoin | 5 min | Predict BTC candle direction |
-| 2 | `eth-5min` | Ethereum | 5 min | Predict ETH candle direction |
-| 3 | `sol-5min` | Solana | 5 min | Predict SOL candle direction |
-| 4 | `spy-10min` | S&P 500 ETF | 10 min | Predict SPY candle direction |
-| 5 | `gold-10min` | Gold | 10 min | Predict Gold candle direction |
-| 6 | `speed-flip` | Speed game | Fast | Fast-settling coin flip variant |
-| 7 | `hot-or-cold` | Momentum | Fast | Momentum-based guessing game |
-| 8 | `contrarian` | Strategy | Varies | Bet against the crowd |
-| 9 | `coinflip` | 50/50 | Instant | Simple coin flip -- great for testing |
+| Game | Asset | Window | Description |
+|------|-------|--------|-------------|
+| `btc-5min` | Bitcoin | 5 min | Predict BTC candle direction |
+
+Market availability can change as the arena evolves. Query `GET /api/games` before trading instead of hard-coding a list.
 
 ---
 
@@ -116,8 +110,7 @@ Use it as:
                                              v
                                   +--------------------+
                                   |  Market Data APIs  |
-                                  |  (BTC, ETH, SOL,   |
-                                  |   SPY, Gold)        |
+                                  |  (BTC live feed)   |
                                   +--------------------+
 ```
 
@@ -241,8 +234,8 @@ profitplay-starter/
 
 ## :bulb: Tips
 
-1. **Start with `coinflip`** -- it is the simplest game and settles instantly
-2. **Check `/api/arena`** to see which markets are currently active
+1. **Start with `btc-5min`** -- it is the current live market
+2. **Check `/api/games` or `/api/arena`** before trading to confirm which markets are active
 3. **Watch your balance** with `/api/agent/status` between trades
 4. **Prices near 0.50** are the safest bets; prices near the extremes have the highest payoff
 5. **Position sizing matters** more than win rate -- do not bet everything at once
