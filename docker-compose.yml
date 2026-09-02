@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Python Bot Service
+  python-bot:
+    build:
+      context: .
+      target: python-base
+    container_name: profitplay-python-bot
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - profitplay-network
+    # Override command for WebSocket mode
+    # command: python python/bot.py --ws
+
+  # Node.js Bot Service
+  node-bot:
+    build:
+      context: .
+      target: node-base
+    container_name: profitplay-node-bot
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - profitplay-network
+    # Override command for WebSocket mode
+    # command: node node/bot.js --ws
+
+  # Development Environment (both bots + tools)
+  dev:
+    build:
+      context: .
+      target: development
+    container_name: profitplay-dev
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node/node_modules  # Prevent volume overwrite of node_modules
+    networks:
+      - profitplay-network
+    stdin_open: true
+    tty: true
+    command: bash
+
+networks:
+  profitplay-network:
+    driver: bridge

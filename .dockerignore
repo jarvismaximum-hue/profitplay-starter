@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+
+# Environment files
+.env
+.env.local
+
+# Node.js
+node/node_modules
+node/npm-debug.log*
+node/yarn-debug.log*
+node/yarn-error.log*
+
+# Python
+python/__pycache__
+python/*.py[cod]
+python/*.pyo
+python/*.pyd
+python/.Python
+python/*.so
+python/.venv
+python/venv/
+python/ENV/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+LICENSE
